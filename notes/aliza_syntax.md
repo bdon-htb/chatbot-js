@@ -1,6 +1,6 @@
 # How ALIZA Files are Structured.
 ## Introduction
-The `.aliza` file syntax borrows most of its ideas from [AIML](https://en.wikipedia.org/wiki/AIML). Similar to `.aiml` files, `.aliza` files are internally an `.xml` file but contains custom tags.
+The `.aliza` file syntax borrows most of its ideas from [AIML](https://en.wikipedia.org/wiki/AIML). Similar to `.aiml` files, `.aliza` files are internally an `.xml` file but contain custom tags.
 
 ## Basic Syntax
 ### AIML Syntax
@@ -50,4 +50,9 @@ are treated here as variables and will thus need to be wrapped in braces {*}.
 
 The `action` tag is an ALIZA specific tag designed as a hook into the chatbot itself.
 More about that in the Tag Reference section.
+
+### Variables
+ALIZA also supports variables like AIML but are written differently. Basically,
+anything wrapped in braces { } is a variable. All possible variables are defined
+within the bot.
 ## Tag Reference
