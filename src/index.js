@@ -1,10 +1,10 @@
 import test from './scripts/hello.js';
-import WordNode from './scripts/tree/WordNode.js';
-import WordTree from './scripts/tree/WordTree.js';
+import PatternNode from './scripts/tree/PatternNode.js';
+import PatternTree from './scripts/tree/PatternTree.js';
 
 function main()
 {
-    let t = new WordTree()
+    let t = new PatternTree()
     let patterns = [
         "HELLO THERE",
         "DO YOU HAVE A DOG",

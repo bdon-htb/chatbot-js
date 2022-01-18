@@ -1,7 +1,7 @@
-import WordNode from './WordNode.js';
+import PatternNode from './PatternNode.js';
 
 /** Class representing a tree containing pattern paths */
-export default class WordTree {
+export default class PatternTree {
     /**
      * Creates a tree.
     */
@@ -24,7 +24,7 @@ export default class WordTree {
     /**
      * Gets and returns the top-level child of this tree that has word.
      * @param { String } word - The word to check for.
-     * @return { WordNode | undefined } Returns top-level child node if it exists. Undefined otherwise.
+     * @return { PatternNode | undefined } Returns top-level child node if it exists. Undefined otherwise.
     */
     getChild(word)
     {
@@ -42,7 +42,7 @@ export default class WordTree {
 
     /**
      * Adds top-level child to this tree's children.
-     * @param { WordNode } child - The child node to add.
+     * @param { PatternNode } child - The child node to add.
     */
     addChild(child)
     {
@@ -53,7 +53,7 @@ export default class WordTree {
      * Performs a search on this tree. The tree will search for and return
      * the closest match of the passed pattern.
      * @param { String[] } pattern - A tokenized array of strings to search.
-     * @return { WordNode | null } Returns nearest node if it exists. Otherwise null.
+     * @return { PatternNode | null } Returns nearest node if it exists. Otherwise null.
     */
     search(pattern)
     {
@@ -92,7 +92,7 @@ export default class WordTree {
         // Handle case where top level node doesn't already exist first.
         if(!this.hasChild(pattern[i]))
         {
-            this.addChild(new WordNode(pattern[i]))
+            this.addChild(new PatternNode(pattern[i]))
         }
 
         let node = this.getChild(pattern[i]);
@@ -101,7 +101,7 @@ export default class WordTree {
             // If the child doesn't already exist. We create one.
             if(!node.hasChild(pattern[i + 1]))
             {
-                node.insert(new WordNode(pattern[i + 1]));
+                node.insert(new PatternNode(pattern[i + 1]));
             }
             node = node.getChild(pattern[i + 1]);
         }

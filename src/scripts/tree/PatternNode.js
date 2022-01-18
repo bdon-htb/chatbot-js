@@ -1,5 +1,5 @@
 /** Class representing a single word token */
-export default class WordNode {
+export default class PatternNode {
     /**
      * Create a node.
      * @param { String } value - The word assigned to this node.
@@ -47,7 +47,7 @@ export default class WordNode {
     /**
      * Gets and returns the child of this node that has word.
      * @param { String } word - The word to check for.
-     * @return { WordNode | null } Returns child node if it exists. Null otherwise.
+     * @return { PatternNode | null } Returns child node if it exists. Null otherwise.
     */
     getChild(word)
     {
@@ -73,7 +73,7 @@ export default class WordNode {
 
     /**
      * Adds child to this node's children.
-     * @param { WordNode } child - The child node to add.
+     * @param { PatternNode } child - The child node to add.
     */
     insert(child)
     {
