@@ -56,3 +56,4 @@ ALIZA also supports variables like AIML but are written differently. Basically,
 anything wrapped in braces { } is a variable. All possible variables are defined
 within the bot.
 ## Tag Reference
+(*) = Accepts statement as is, or with stuff after

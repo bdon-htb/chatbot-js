@@ -112,6 +112,8 @@ export default class PatternTree {
 
     /**
      * Returns a "pretty" string representation of this tree for printing.
+     * This uses recursion so I wouldn't recomend using this for anything other
+     * than debugging.
      * @return { String } String to return.
     */
     stringify()
