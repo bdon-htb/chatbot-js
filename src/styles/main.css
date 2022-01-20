@@ -1,12 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --input-shadow: 0 1px 5px 0 rgba(0,0,0,0.15),0 4px 4px 0 rgba(0,0,0,0.1),0 -0.1px 3px 0 rgba(0,0,0,0.08);
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    height: inherit;
+}
+
 .input-field-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 50px;
+    height: 100%;
 }
 
-.input-field-message input {
+.input-field-message {
+    display: flex;
+    justify-content: center;
+    min-height: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#aliza-submit-text {
     border-radius: 26px;
-    padding: 6px 20px;
+    padding: 3px  30px;
+    width: 100%;
+    height: 42px;
+    max-width: 584px;
+    box-shadow: var(--input-shadow);
+    border: none;
 }
 
-.transcript {
+#aliza-submit-btn {
+    margin-left: 10px;
+    border: none;
+    border-radius: 26px;
+    min-width: 48px;
+    min-height: 48px;
+    box-shadow: var(--input-shadow);
+}
+
+#aliza-transcript {
     resize: none;
+    scrollbar-width: thin;
+    max-width: 690px;
+    height: 50%;
+    widtH: 100%;
 }

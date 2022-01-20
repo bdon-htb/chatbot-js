@@ -33,7 +33,7 @@ export default class AlizaChatbot {
         let responseText = this.getResponse(this.parser.tokenize(inputText));
     }
 
-    // TODO: Account for wild cards, implement actions, variables, etc.
+    // TODO: Implement actions.
     getResponse(pattern)
     {
         let closest = this.patterns.search(pattern);
