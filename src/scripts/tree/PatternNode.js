@@ -45,6 +45,15 @@ export default class PatternNode {
     }
 
     /**
+     * Checks and returns if this node has templates.
+     * @return { Boolean } Returns true if node has any templates. False otherwise.
+    */
+    hasTemplates()
+    {
+        return this.templates != null;
+    }
+
+    /**
      * Gets and returns the child of this node that has word.
      * @param { String } word - The word to check for.
      * @return { PatternNode | null } Returns child node if it exists. Null otherwise.
@@ -72,6 +81,15 @@ export default class PatternNode {
     }
 
     /**
+     * Returns all the templates in this node.
+     * @param { String[] | null }
+    */
+    getTemplates()
+    {
+        return this.templates;
+    }
+
+    /**
      * Adds child to this node's children.
      * @param { PatternNode } child - The child node to add.
     */
@@ -88,7 +106,7 @@ export default class PatternNode {
     */
     addTemplate(template)
     {
-        if(this.templates == null){ this.templates = [] };
+        if(!this.hasTemplates()){ this.templates = [] };
         this.templates.push(template);
     }
 }

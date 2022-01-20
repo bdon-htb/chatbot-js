@@ -1,9 +1,6 @@
-import test from './scripts/hello.js';
-import Parser from './scripts/Parser.js';
-import PatternNode from './scripts/tree/PatternNode.js';
-import PatternTree from './scripts/tree/PatternTree.js';
+import AlizaChatbot from './scripts/AlizaChatbot.js';
 
-async function main()
+function main()
 {
     // let t = new PatternTree()
     // let patterns = [
@@ -25,9 +22,16 @@ async function main()
     // console.log(t.search(p));
     // p = "DO YOU HAVE".split(" ");
     // console.log(t.search(p));
-    let p = new Parser();
-    let t = await p.loadAndCompile('/data/data_set.alzml');
-    console.log(t.stringify());
+
+    // let p = new Parser();
+    // let t = await p.loadAndCompile('/data/data_set.alzml');
+    // console.log(t.stringify());
+
+    // let submitBtn = document.getElementById('aliza-submit-btn');
+    // submitBtn.addEventListener("click", clickHandler);
+    // console.log(submitBtn);
+
+    new AlizaChatbot().start();
 }
 
 main();

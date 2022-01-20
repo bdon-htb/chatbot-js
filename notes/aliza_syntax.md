@@ -31,11 +31,10 @@ Any number of `in` and `out` tags will work as long as there is at least one
 of each:
 ```xml
 <io>
-  <in>WHAT IS {*}</in>
-  <in>WHO IS {*}</in>
-  <in>WHERE IS {*}</in>
+  <in>WHAT IS</in>
+  <in>WHO IS</in>
+  <in>WHERE IS</in>
   <out>Not sure. Let me find out.</out>
-  <out>I'll search about {*}. Give me a second.</out>
   <out>No idea. Let me see what I can find.</out>
   <action>{*} => {actions.search}</action>
 </io>
@@ -45,15 +44,7 @@ within the same `io` block. At runtime, the `out` tag response will be selected
 at random. This differs from AIML where random responses needed to be explicitly
 wrapped into a `random` tag.
 
-As seen in the example above, ALIZA supports wildcards * similar to AIML. However, wildcards
-are treated here as variables and will thus need to be wrapped in braces {*}.
+ALIZA does not support wildcarding like AIML.
 
 The `action` tag is an ALIZA specific tag designed as a hook into the chatbot itself.
 More about that in the Tag Reference section.
-
-### Variables
-ALIZA also supports variables like AIML but are written differently. Basically,
-anything wrapped in braces { } is a variable. All possible variables are defined
-within the bot.
-## Tag Reference
-(*) = Accepts statement as is, or with stuff after

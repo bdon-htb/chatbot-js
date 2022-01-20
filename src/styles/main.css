@@ -1,9 +1,12 @@
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+.input-field-container {
+    display: flex;
 }
 
-input,
-label {
-    margin: .4rem 0;
+.input-field-message input {
+    border-radius: 26px;
+    padding: 6px 20px;
+}
+
+.transcript {
+    resize: none;
 }

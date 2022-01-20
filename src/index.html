@@ -8,8 +8,12 @@
     </head>
     <body>
         <h1>Default Text</h1>
-        <label for="input-field">Enter something here for Aliza!</label>
-        <input type="text" id="input-field">
-        <input type="button" value="Send">
+        <div class="input-field-container">
+            <div class="input-field-message">
+                <input id="aliza-submit-text" type="text" placeholder="Say something to ALIZA...">
+                <button id="aliza-submit-btn" type="button">Send</button>
+            </div>
+        </div>
+        <textarea class="transcript"></textarea>
     </body>
 </html>

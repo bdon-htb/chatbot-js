@@ -49,7 +49,7 @@ export default class Parser {
     */
     tokenize(s)
     {
-        s.replace('/\r?\n|\r/g', '')
+        s = s.replace(/(?:\r\n|\r|\n|!|\.|\?)/g, '').toUpperCase();
         return s.split(' ')
     }
 
@@ -77,6 +77,11 @@ export default class Parser {
         return patternTree;
     }
 
+    /**
+     * Compiles contents of file into a PatternTree and returns it.
+     * @param { String } url - url of file to compile.
+     * @return { PatternTree } Returns compiled file as PatternTree.
+    */
     async loadAndCompile(url)
     {
         let file = await this.load(url);

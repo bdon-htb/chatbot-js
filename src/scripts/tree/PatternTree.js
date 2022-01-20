@@ -61,7 +61,8 @@ export default class PatternTree {
         let found = false;
         // Set starting node as top level node.
         let node =  this.getChild(pattern[i]);
-        while(!found || i < pattern.length - 1)
+        if(node == undefined){ return null }; // Catch case where first node doesn't exist.
+        while(!found && i < pattern.length - 1)
         {
             // If we find a matching child, we search that one.
             if(node.hasChild(pattern[i + 1]))
