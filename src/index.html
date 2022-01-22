@@ -4,16 +4,25 @@
         <meta charset="utf-8">
         <script type="module" src="./index.js" charset="utf-8"></script>
         <link rel="stylesheet" href="./styles/main.css">
-        <title></title>
+        <title>ALIZA Chatbot</title>
     </head>
     <body>
-        <h1>Aliza Chatbot</h1>
+        <header>
+            <button class="dark-mode-btn" type="button"><img></img></button>
+        </header>
+
         <div class="input-field-container">
+            <canvas id="aliza-portrait-canvas"></canvas>
             <div class="input-field-message">
-                <input id="aliza-submit-text" type="text" placeholder="Say something to ALIZA...">
-                <button id="aliza-submit-btn" type="button">Send</button>
+                <input id="aliza-submit-text" type="text" placeholder="Enter your question for ALIZA here...">
+                <button id="aliza-submit-btn" class="submit-btn" type="button">Ask!</button>
             </div>
-            <textarea id="aliza-transcript"></textarea>
+            <div id="aliza-transcript" class="transcript">
+                <span class="transcript-element"><p class="transcript-speaker-name">TEST SPEAKER:</p><p class="transcript-speaker-text">TEST TEXT</p></span>
+            </div>
         </div>
+
+        <footer>
+        </footer>
     </body>
 </html>

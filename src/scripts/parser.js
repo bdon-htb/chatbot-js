@@ -49,7 +49,7 @@ export default class Parser {
     */
     tokenize(s)
     {
-        s = s.replace(/(?:\r\n|\r|\n|!|\.|\?)/g, '').toUpperCase();
+        s = s.replace(/(?:\r\n|\r|\n|!|\.|\?|\*)/g, '').toUpperCase();
         return s.split(' ')
     }
 
@@ -87,4 +87,16 @@ export default class Parser {
         let file = await this.load(url);
         return this.compile(file);
     }
+
+    /**
+     * This will do useful conversions like changing common contractions -> full form
+     * or convert UK spelling -> US spelling make matches slightly more likely.
+     * @param { String } s - The string to process.
+     * @returns { String } Returns a processed copy of s.
+    */
+    process(s)
+    {
+
+    }
+
 }
