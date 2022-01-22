@@ -8,12 +8,14 @@ export default class GUIHandler {
     submitInputId = 'aliza-submit-text';
     transcriptId = 'aliza-transcript';
     alizaCanvasId = 'aliza-portrait-canvas';
+    alizaSpeechId = 'aliza-speech-bubble';
 
     // Reference to relevant DOM elements.
     submitBtn; // <button> element.
     submitInput; // <input> element.
     transcript; // <div> element.
     alizaCanvas; // <canvas> element.
+    alizaSpeech; // <div> element; Aliza's speech bubble.
 
     alizaAssetsURL = '../images/aliza_assets';
     alizaAssetNames = [
@@ -36,13 +38,13 @@ export default class GUIHandler {
         this.submitBtn = document.getElementById(this.submitBtnId);
         this.submitInput = document.getElementById(this.submitInputId);
         this.transcript = document.getElementById(this.transcriptId);
-        this.alizaCanvas = document.getElementById(this.alizaCanvasId)
+        this.alizaCanvas = document.getElementById(this.alizaCanvasId);
+        this.alizaSpeech = document.getElementById(this.alizaSpeechId);
 
         this.btnHandler;
         this.textHandler = (event) => {
             if(event.code === 'Enter')
             {
-                console.log("Yo!")
                 event.preventDefault();
                 this.submitBtn.click();
             }
@@ -59,6 +61,9 @@ export default class GUIHandler {
 
         this.startBlink(1000);
         this.drawAliza();
+
+        window.addEventListener("resize", () => { this.updateSpeechBubbleSize(); });
+        this.updateSpeechBubbleSize();
     }
 
     /**
@@ -102,8 +107,7 @@ export default class GUIHandler {
     addToTranscript(speaker, text)
     {
         let html = `<span class="transcript-element"><p class="transcript-speaker-name">${speaker}:</p><p class="transcript-speaker-text">${text}</p></span>`;
-        this.transcript.insertAdjacentHTML('beforeend', html);
-        this.transcript.scrollTop = this.transcript.scrollHeight;
+        this.transcript.insertAdjacentHTML('afterbegin', html);
     }
 
     async loadAlizaAssets()
@@ -157,5 +161,11 @@ export default class GUIHandler {
     {
         if(delay == null){ delay = randomInt(2000, 8000); }
         setTimeout(() => { this.blinkAnimation.start() }, delay);
+    }
+
+    updateSpeechBubbleSize()
+    {
+        let newWidth = this.alizaCanvas.getBoundingClientRect().height;
+        this.alizaSpeech.setAttribute('style',  `height: ${newWidth}px`);
     }
 }

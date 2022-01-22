@@ -11,16 +11,30 @@
             <button class="dark-mode-btn" type="button"><img></img></button>
         </header>
 
-        <div class="input-field-container">
-            <canvas id="aliza-portrait-canvas"></canvas>
-            <div class="input-field-message">
-                <input id="aliza-submit-text" type="text" placeholder="Enter your question for ALIZA here...">
-                <button id="aliza-submit-btn" class="submit-btn" type="button">Ask!</button>
+        <main>
+            <div class="aliza-portrait-container">
+                <canvas id="aliza-portrait-canvas"></canvas>
+                <div class="speech-bubble-container">
+                    <div class="speech-bubble-arrow"></div>
+                    <div id="aliza-speech-bubble" class="speech-bubble">Hello there.</div>
+                </div>
             </div>
-            <div id="aliza-transcript" class="transcript">
-                <span class="transcript-element"><p class="transcript-speaker-name">TEST SPEAKER:</p><p class="transcript-speaker-text">TEST TEXT</p></span>
+
+            <div class="input-field-container">
+                <div class="input-field-message">
+                    <input id="aliza-submit-text" type="text" placeholder="Enter your question for ALIZA here...">
+                    <button id="aliza-submit-btn" class="submit-btn" type="button">Ask!</button>
+                </div>
             </div>
-        </div>
+
+            <div class="transcript-container">
+                <div id="aliza-transcript" class="transcript">
+                    <span class="transcript-element"><p class="transcript-speaker-name">TEST SPEAKER:</p><p class="transcript-speaker-text">TEST TEXT</p></span>
+                </div>
+
+            </div>
+
+        </main>
 
         <footer>
         </footer>

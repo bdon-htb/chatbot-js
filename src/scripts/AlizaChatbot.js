@@ -48,8 +48,8 @@ export default class AlizaChatbot {
         let inputText = this.gui.getInput();
         let responseText = this.getResponse(this.parser.tokenize(inputText));
 
-        this.gui.addToTranscript('YOU', inputText);
         this.gui.addToTranscript('ALIZA', responseText);
+        this.gui.addToTranscript('YOU', inputText);
     }
 
     // TODO: Implement actions.

@@ -7,11 +7,10 @@
     --main-highlight: #8AE9C1;
     --main-highlight-selected: #A0EEC0;
     --text-dark: #212121;
-    --text-light: #212121;
+    --text-light: #fff;
     --dark-mode-icon-light: url('../images/icons/sun.svg');
     --dark-mode-icon-dark: url('../images/icons/moon.svg');
-    width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 * {
@@ -24,16 +23,27 @@ body {
     display: flex;
     flex-direction: column;
     width: inherit;
-    height: inherit;
+    max-height: 100vh;
     background-color: var(--main-bg-color);
 }
 
 header {
     display: flex;
-    justify-content: space-between;;
+    justify-content: space-between;
     padding: 10px 15px;
     background-color: var(--main-highlight);
     box-shadow: var(--default-box-shadow);
+    height: 20%
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: inherit;
+    height: inherit;
+    overflow-y: hidden;
 }
 
 #website-title {
@@ -57,16 +67,51 @@ header {
 #aliza-portrait-canvas {
     width: 20%;
     max-width: 147.75px;
+    min-width: 118.233px;
 }
 
-.input-field-container {
+.aliza-portrait-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 50px;
+}
+
+.speech-bubble-container {
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 30%;
+}
+
+.speech-bubble {
+  box-sizing: border-box;
+  background: var(--main-highlight);
+  margin-bottom: 5px;
+  padding: 20px 0 0 20px;
+  font-weight: 900;
+  color: var(--text-dark);
+  box-shadow: var(--default-box-shadow);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.speech-bubble-arrow {
+    position: relative;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: var(--main-highlight);
+	border-left: 0;
+	border-bottom: 0;
+}
+
+.input-field-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     margin: 0 50px;
-    height: 100%;
-    overflow-y: hidden;
 }
 
 .input-field-message {
@@ -86,6 +131,7 @@ header {
     box-shadow: var(--default-box-shadow);
     background-color: var(--main-highlight);
     padding: 10px;
+    font-weight: 900;
 }
 
 .submit-btn:hover {
@@ -96,13 +142,20 @@ header {
     transform: translateY(1px);
 }
 
+.transcript-container {
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+
 .transcript {
     resize: none;
     scrollbar-width: thin;
     max-width: 690px;
-    height: 50%;
     width: 100%;
     overflow-y: auto;
+    justify-content: center;
 }
 
 .transcript-element {
