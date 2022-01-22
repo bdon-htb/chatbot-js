@@ -9,6 +9,7 @@ import { randomChoice } from './funcs.js';
 /** Class handles main chatbot logic.  */
 export default class AlizaChatbot {
     patternFileURL = '/data/data_set.alzml';
+    actionPattern = /{action.(.*)}/;
 
     /**
      * Creates chatbot instance.
@@ -17,7 +18,7 @@ export default class AlizaChatbot {
     {
         this.parser = new Parser();
         this.gui = new GUIHandler();
-        this.actions = new ActionHandler();
+        this.actions = new ActionHandler(this);
         this.patterns;
     }
 
@@ -43,12 +44,25 @@ export default class AlizaChatbot {
      * Takes in input from the input form and responds.
      * This is automatically called when the Ask button is pressed.
     */
-    takeInput()
+    async takeInput()
     {
         let inputText = this.gui.getInput();
-        let responseText = this.getResponse(this.parser.tokenize(inputText));
 
-        this.gui.addToTranscript('ALIZA', responseText);
+        let responseText = this.getResponse(this.parser.tokenize(inputText));
+        if(responseText != null && responseText.match(this.actionPattern) != null)
+        {
+            // Extract action name from matched response.
+            let actionName = responseText.replace(/(?:\r\n|\r|\n|\{|\}|)/g, '','').split('.')[1];
+            this.actions.act(actionName);
+        }
+        else if(responseText != null)
+        {
+            this.speak(responseText);
+        }
+        else { // Generic messages.
+            this.actions.act('getGeneric')
+        }
+
         this.gui.addToTranscript('YOU', inputText);
     }
 
@@ -61,5 +75,11 @@ export default class AlizaChatbot {
             return randomChoice(closest.getTemplates());
         }
         else return null;
+    }
+
+    async speak(message)
+    {
+        await this.gui.startSpeak(message);
+        this.gui.addToTranscript('ALIZA', message);
     }
 }

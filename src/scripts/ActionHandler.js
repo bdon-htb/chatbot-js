@@ -1,11 +1,17 @@
 import Action from './Action.js';
 
 import WeatherAction from './actions/WeatherAction.js';
+import GreetAction from './actions/GreetAction.js';
+import GetTimeAction from './actions/GetTimeAction.js';
+import GetGenericAction from './actions/GetGenericAction.js';
 
 /** Class serves as an interface for starting chatbot actions */
 export default class ActionHandler {
     actionClasses = [
-        WeatherAction
+        WeatherAction,
+        GreetAction,
+        GetTimeAction,
+        GetGenericAction
     ]
 
     /**

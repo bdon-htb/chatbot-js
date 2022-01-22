@@ -64,6 +64,8 @@ export default class GUIHandler {
 
         window.addEventListener("resize", () => { this.updateSpeechBubbleSize(); });
         this.updateSpeechBubbleSize();
+
+        this.speechBubbleAnimation = null;
     }
 
     /**
@@ -141,7 +143,7 @@ export default class GUIHandler {
 
         let images = [
             this.alizaAssets.get('body.png'),
-            this.alizaAssets.get(`mouth1.png`),
+            this.alizaAssets.get(`mouth${this.talkAnimation.getFrame()}.png`),
             this.alizaAssets.get(`eyes${this.blinkAnimation.getFrame()}.png`)
         ]
 
@@ -154,6 +156,7 @@ export default class GUIHandler {
             ctx.drawImage(img, 0, 0, img.width, img.height, // source rectangle
                    0, 0, canvas.width, canvas.height); // dest rectangle
         }
+        this.updateSpeechBubbleText();
         window.requestAnimationFrame(() => { this.drawAliza() });
     }
 
@@ -167,5 +170,41 @@ export default class GUIHandler {
     {
         let newWidth = this.alizaCanvas.getBoundingClientRect().height;
         this.alizaSpeech.setAttribute('style',  `height: ${newWidth}px`);
+    }
+
+    clearSpeechBubble()
+    {
+        this.alizaSpeech.innerHTML = '';
+    }
+
+    updateSpeechBubbleText()
+    {
+        if(this.speechBubbleAnimation != null){
+            let frames = this.speechBubbleAnimation.getAllFrames();
+            frames = frames.slice(0, this.speechBubbleAnimation.getIndex() + 1);
+            this.alizaSpeech.innerHTML = frames.join('');;
+        }
+    }
+
+    startSpeak(s)
+    {
+        return new Promise((resolve, reject) => {
+            this.speaking = true;
+
+            if(this.speechBubbleAnimation != null){
+                this.speechBubbleAnimation.stop();
+            }
+
+            let frames = s.split('');
+            let callback = () => {
+                this.speaking = false;
+                this.speechBubbleAnimation = null;
+                this.talkAnimation.stop();
+                resolve();
+            }
+            this.speechBubbleAnimation = new Animation(17, frames, false, callback);
+            this.speechBubbleAnimation.start();
+            this.talkAnimation.start(true);
+        });
     }
 }

@@ -15,7 +15,7 @@ export default class Animation {
 
     start(ignoreIfRunning=false)
     {
-        if(this.running && !ignoreIfRunning){ return };
+        if(this.running && ignoreIfRunning){ return };
 
         this.interval = setInterval(() => { this.next(); }, this.delay);
         this.currentIndex = this.startIndex;
@@ -26,6 +26,7 @@ export default class Animation {
     {
         if(this.interval != null){ clearInterval(this.interval) };
         this.running = false;
+        this.currentIndex = this.startIndex;
     }
 
     next()
@@ -41,6 +42,16 @@ export default class Animation {
             }
             this.currentIndex = this.startIndex;
         }
+    }
+
+    getIndex()
+    {
+        return this.currentIndex;
+    }
+
+    getAllFrames()
+    {
+        return this.frames;
     }
 
     getFrame()

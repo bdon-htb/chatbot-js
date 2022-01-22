@@ -23,8 +23,10 @@
   <io>
     <in>WHAT TIME IS IT</in>
     <in>WHAT IS THE DATE</in>
+    <in>WHAT IS THE TIME</in>
     <in>WHAT IS TODAY'S DATE</in>
     <in>CAN YOU TELL ME THE TIME</in>
+    <in>CAN YOU TELL ME THE DATE</in>
     <out>{actions.getTime}</out>
   </io>
   <io>
@@ -34,6 +36,14 @@
     <in>HOW COLD IS IT</in>
     <in>HOW HOT IS IT</in>
     <out>{actions.getWeather}</out>
+  </io>
+
+  <io>
+    <in>HOW ARE YOU</in>
+    <in>HOW IS YOUR DAY</in>
+    <in>HOW WAS YOUR DAY</in>
+    <out>I'm doing fine today thanks!</out>
+    <out>I'm doing good. What about you?</out>
   </io>
 
   <!-- PUT STUFF DESCRIBING ALIZA HERE -->
