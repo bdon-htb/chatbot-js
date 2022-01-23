@@ -30,6 +30,12 @@ export default class GUIHandler {
     alizaAssetWidth = 608;
     alizaAssetHeight = 854;
 
+    askInputText = 'Ask!';
+    askPlaceholderText = 'Enter your question for ALIZA here...';
+    respondInputText = 'Respond!';
+    respondPlaceholderText = 'Enter a response for ALIZA here...';
+
+
     /**
      * Initializes GUIHandler instance by storing references to relevant document elements.
     */
@@ -206,5 +212,17 @@ export default class GUIHandler {
             this.speechBubbleAnimation.start();
             this.talkAnimation.start(true);
         });
+    }
+
+    setAskInput()
+    {
+        this.submitInput.placeholder = this.askPlaceholderText;
+        this.submitBtn.innerHTML = this.askInputText;
+    }
+
+    setPromptInput()
+    {
+        this.submitInput.placeholder = this.respondPlaceholderText;
+        this.submitBtn.innerHTML = this.respondInputText;
     }
 }

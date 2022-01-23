@@ -11,7 +11,6 @@ export default class GetGenericAction extends Action {
         'Sorry, I don\'t know what you mean by that',
         'I don\'t understand that input. Sorry about that.',
         'I don\'t understand.',
-        'I don\'t have that feature.',
     ]
 
     async act()

@@ -20,6 +20,9 @@ export default class AlizaChatbot {
         this.gui = new GUIHandler();
         this.actions = new ActionHandler(this);
         this.patterns;
+
+        this.prompting = false;
+        this.promptCallback = null;
     }
 
     /**
@@ -47,9 +50,13 @@ export default class AlizaChatbot {
     async takeInput()
     {
         let inputText = this.gui.getInput();
-
         let responseText = this.getResponse(this.parser.tokenize(inputText));
-        if(responseText != null && responseText.match(this.actionPattern) != null)
+        if(this.prompting){
+            // Pass the inputText to whatever originally called for the prompt.
+            this.promptCallback(inputText);
+            this.setPrompting(false);
+        }
+        else if(responseText != null && responseText.match(this.actionPattern) != null)
         {
             // Extract action name from matched response.
             let actionName = responseText.replace(/(?:\r\n|\r|\n|\{|\}|)/g, '','').split('.')[1];
@@ -66,7 +73,6 @@ export default class AlizaChatbot {
         this.gui.addToTranscript('YOU', inputText);
     }
 
-    // TODO: Implement actions.
     getResponse(pattern)
     {
         let closest = this.patterns.search(pattern);
@@ -77,9 +83,34 @@ export default class AlizaChatbot {
         else return null;
     }
 
+    /**
+     * Tells Aliza to start saying that message.
+    */
     async speak(message)
     {
         await this.gui.startSpeak(message);
         this.gui.addToTranscript('ALIZA', message);
+    }
+
+    /**
+     * Prompts user for an input.
+    */
+    prompt(callback)
+    {
+        this.gui.clearInputField();
+        this.setPrompting(true);
+        this.promptCallback = callback;
+    }
+
+    setPrompting(b)
+    {
+        if(b){
+            this.gui.setPromptInput();
+            this.prompting = true;
+        }
+        else {
+            this.gui.setAskInput();
+            this.prompting = false;
+        }
     }
 }
