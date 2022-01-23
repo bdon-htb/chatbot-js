@@ -52,14 +52,16 @@ export default class AlizaChatbot {
     {
         let inputText = this.gui.getInput();
         let responseText = this.getResponse(this.parser.tokenize(inputText));
-        if(this.prompting){
+        let addToTranscript = true;
+        if(inputText === '' && this.gui.isSpeaking()) // Enter to skip speak animation.
+        {
+            addToTranscript = false;
+            this.gui.stopSpeak();
+        }
+        else if(this.prompting){
             // Pass the inputText to whatever originally called for the prompt.
             this.promptCallback(inputText);
             this.setPrompting(false);
-        }
-        else if(inputText === '' && this.gui.isSpeaking()) // Enter to skip speak animation.
-        {
-            this.gui.stopSpeak();
         }
         else if(responseText != null && responseText.match(this.actionPattern) != null)
         {
@@ -75,7 +77,10 @@ export default class AlizaChatbot {
             this.actions.act('getGeneric')
         }
 
-        this.gui.addToTranscript('YOU', inputText);
+        if(addToTranscript)
+        {
+            this.gui.addToTranscript('YOU', inputText);
+        }
         this.lastInput = inputText;
     }
 

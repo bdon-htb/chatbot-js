@@ -36,6 +36,10 @@ header {
     height: 20%
 }
 
+footer {
+    background-color: var(--main-highlight);
+}
+
 main {
     box-sizing: border-box;
     display: flex;
@@ -68,6 +72,10 @@ main {
     width: 20%;
     max-width: 147.75px;
     min-width: 118.233px;
+}
+
+.webpage-title {
+    font-weight: 900;
 }
 
 .aliza-portrait-container {
@@ -169,27 +177,4 @@ main {
 .transcript-speaker-text {
     color: red;
     margin-left: 10px;
-}
-
-.dark-mode-btn, .dark-mode-btn:hover, .dark-mode-btn:active {
-    border: none;
-    border-radius: 28px;
-    box-shadow: var(--default-box-shadow);
-    padding: 10px;
-    background-color: var(--main-bg-color);
-}
-
-.dark-mode-btn:hover {
-    background-color: #F5F5F5;
-}
-
-.dark-mode-btn:active {
-    transform: translateY(1px);
-}
-
-.dark-mode-btn img {
-    content: var(--dark-mode-icon-dark);
-    min-width: 28px;
-    min-height: 28px;
-    filter: invert(81%) sepia(48%) saturate(294%) hue-rotate(98deg) brightness(96%) contrast(92%);
 }
