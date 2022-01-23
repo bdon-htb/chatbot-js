@@ -203,15 +203,31 @@ export default class GUIHandler {
 
             let frames = s.split('');
             let callback = () => {
-                this.speaking = false;
-                this.speechBubbleAnimation = null;
-                this.talkAnimation.stop();
+                this.stopSpeak();
                 resolve();
             }
             this.speechBubbleAnimation = new Animation(17, frames, false, callback);
             this.speechBubbleAnimation.start();
             this.talkAnimation.start(true);
         });
+    }
+
+    stopSpeak()
+    {
+        if(!this.speaking){ return; }
+
+        this.speaking = false;
+        this.speechBubbleAnimation.stop();
+        this.speechBubbleAnimation.setIndex(-1);
+        this.updateSpeechBubbleText();
+        this.talkAnimation.stop();
+
+        this.speechBubbleAnimation = null;
+    }
+
+    isSpeaking()
+    {
+        return this.speaking;
     }
 
     setAskInput()

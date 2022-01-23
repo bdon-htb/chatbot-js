@@ -7,8 +7,8 @@ export default class GetGenericAction extends Action {
     name = 'getGeneric';
 
     messages = [
-        'Sorry, I don\'t know that one',
-        'Sorry, I don\'t know what you mean by that',
+        'Sorry, I don\'t know that one.',
+        'Sorry, I don\'t know what you mean by that.',
         'I don\'t understand that input. Sorry about that.',
         'I don\'t understand.',
     ]

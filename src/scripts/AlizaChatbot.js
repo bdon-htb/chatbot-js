@@ -23,6 +23,7 @@ export default class AlizaChatbot {
 
         this.prompting = false;
         this.promptCallback = null;
+        this.lastInput = '';
     }
 
     /**
@@ -56,6 +57,10 @@ export default class AlizaChatbot {
             this.promptCallback(inputText);
             this.setPrompting(false);
         }
+        else if(inputText === '' && this.gui.isSpeaking()) // Enter to skip speak animation.
+        {
+            this.gui.stopSpeak();
+        }
         else if(responseText != null && responseText.match(this.actionPattern) != null)
         {
             // Extract action name from matched response.
@@ -71,6 +76,7 @@ export default class AlizaChatbot {
         }
 
         this.gui.addToTranscript('YOU', inputText);
+        this.lastInput = inputText;
     }
 
     getResponse(pattern)

@@ -16,6 +16,11 @@ export default class ActionHandler {
         GetHelpAction
     ]
 
+    privateActions = [ // Defines all actions hidden from the user.
+        GreetAction,
+        GetGenericAction
+    ]
+
     /**
      * Creates an ActionHandler.
     */
@@ -50,6 +55,19 @@ export default class ActionHandler {
         {
             action.act();
             return true;
+        }
+        return false;
+    }
+
+    getAllActions(){
+        return this.actions;
+    }
+
+    isPrivate(action)
+    {
+        for(const cls of this.privateActions)
+        {
+            if(action instanceof cls){ return true; }
         }
         return false;
     }

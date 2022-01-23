@@ -17,6 +17,7 @@
     <in>WHAT CAN YOU DO</in>
     <in>CAN I GET HELP</in>
     <in>CAN I GET SOME HELP</in>
+    <in>CAN YOU HELP</in>
     <in>HELP</in>
     <out>{actions.getHelp}</out>
   </io>
@@ -27,6 +28,8 @@
     <in>WHAT IS TODAY'S DATE</in>
     <in>CAN YOU TELL ME THE TIME</in>
     <in>CAN YOU TELL ME THE DATE</in>
+    <in>GET TIME</in>
+    <in>GET DATE</in>
     <out>{actions.getTime}</out>
   </io>
   <io>
@@ -35,6 +38,8 @@
     <in>CAN YOU TELL ME THE TEMPERATURE</in>
     <in>HOW COLD IS IT</in>
     <in>HOW HOT IS IT</in>
+    <in>GET WEATHER</in>
+    <in>GET TEMPERATURE</in>
     <out>{actions.getWeather}</out>
   </io>
 

@@ -44,9 +44,23 @@ export default class Animation {
         }
     }
 
+    setIndex(i)
+    {
+        if(i === -1){ i = this.endIndex; }
+
+        i = Math.max(i, this.startIndex);
+        i = Math.min(i, this.endIndex);
+        
+        this.currentIndex = i;
+    }
     getIndex()
     {
         return this.currentIndex;
+    }
+
+    getLastIndex()
+    {
+        return this.endIndex;
     }
 
     getAllFrames()
@@ -54,9 +68,11 @@ export default class Animation {
         return this.frames;
     }
 
-    getFrame()
+    getFrame(i)
     {
-        return this.frames[this.currentIndex];
+        if(i == null){
+            return this.frames[this.currentIndex];
+        } else return this.frames[i];
     }
 
     isRunning()

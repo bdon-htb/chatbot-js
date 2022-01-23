@@ -3,6 +3,7 @@ import Action from '../Action.js';
 /** Action for getting the date. */
 export default class GetTimeAction extends Action {
     name = 'getTime';
+    description = 'tell you today\'s date.';
     months = [
         'January',
         'February',

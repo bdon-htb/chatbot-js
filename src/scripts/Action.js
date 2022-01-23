@@ -4,7 +4,8 @@
  * @abstract
 */
 export default class Action {
-    name = null; // The name of the action.
+    name = ''; // The name of the action.
+    description = ''; // Description of action. Used in help message.
 
     /**
      * Creates an action.
@@ -20,4 +21,14 @@ export default class Action {
      * @abstract
     */
     async act(){}
+
+    getName()
+    {
+        return this.name;
+    }
+
+    getDesc()
+    {
+        return this.description;
+    }
 }
