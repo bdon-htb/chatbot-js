@@ -1,6 +1,6 @@
 # Aliza Chatbot
 
-Aliza (or ALIZA) is a simple chatbot that I made as a submission for PyJac Rebooted.
+Aliza (or ALIZA) is a simple chatbot that I made as a submission for [PyJac Rebooted](https://pyjac-rebooted.devpost.com/).
 
 Aliza's name is a portmanteau of the names Alice (A.L.I.C.E.) and Eliza who
 are older chatbots that Aliza was based on. Aliza even uses a custom markup language
