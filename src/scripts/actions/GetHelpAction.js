@@ -16,7 +16,7 @@ export default class WeatherAction extends Action {
     okayMessage = ['Sure thing!', 'Alright!', 'Ok!']
     actionMessageEnd = (
         'I\'d also like to mention that you may call these actions by asking me normally ' +
-        'or by directly calling them. i.e. "action=getHelp".'
+        'or by directly calling them.'
     )
 
     async act()
