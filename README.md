@@ -1,11 +1,14 @@
-# Aliza Chatbot chatbot-js
+# Aliza Chatbot
 
 Aliza (or ALIZA) is a simple chatbot that I made as a submission for PyJac Rebooted.
 
 Aliza's name is a portmanteau of the names Alice (A.L.I.C.E.) and Eliza who
 are older chatbots that Aliza was based on. Aliza even uses a custom markup language
-that is very similar to AIML. You can read more about it in the notes directory
-of this repo.
+that is very similar to AIML. You can read more about the .alzml file syntax in the notes directory of this repo.
+
+Aliza uses a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) using JavaScript's
+builtin Map objects. This implementation is similar to how Alice's interpreter is
+implementated as according to the [AIML foundation website](http://www.aiml.foundation/doc.html) (checkout the "AIML Pattern Matching" section).
 
 PyJac is a hackathon run by students at UTM. Participants are given a selection
 of prompts to choose and are then given a week to code and submit it with a video demonstration.
@@ -32,4 +35,4 @@ python -m http.server 8000
 Then open your browser of choice (I suggest in private browsing), navigate to localhost:8000 and the webpage should load.
 
 ## Preview Images
-![Screenshot of Aliza Interface]()
+![Screenshot of Aliza Interface](https://github.com/bdon-htb/chatbot-js/blob/main/preview_images/screenshot.png)

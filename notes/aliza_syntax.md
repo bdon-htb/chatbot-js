@@ -36,7 +36,6 @@ of each:
   <in>WHERE IS</in>
   <out>Not sure. Let me find out.</out>
   <out>No idea. Let me see what I can find.</out>
-  <action>{*} => {actions.search}</action>
 </io>
 ```
 Where each `in` tag will be treated as a possible match for any of the `out` tags
@@ -46,5 +45,14 @@ wrapped into a `random` tag.
 
 ALIZA does not support wildcarding like AIML.
 
-The `action` tag is an ALIZA specific tag designed as a hook into the chatbot itself.
-More about that in the Tag Reference section.
+ALIZA has support for calling actions. actions are essentially hooks
+for calling chatbot functions in the code.
+```xml
+<io>
+  <in>HELLO</in>
+  <out>{actions.greet}</out>
+</io>
+```
+In this example, inputting "hello" will tell ALIZA to call the "greet" action
+assigned in her actionHandler. Take a look at /src/scripts/actions for relevant
+code.
