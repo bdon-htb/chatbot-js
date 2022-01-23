@@ -15,14 +15,14 @@ of prompts to choose and are then given a week to code and submit it with a vide
 
 ## Developing
 
-## Built With
+### Built With
 Aliza was developed using modern / ES6 JavaScript.
 
-## Prerequisites
+### Prerequisites
 I recommend running Aliza on a local server. To do this, I personally use python3's
 http.server. If you don't already have python installed you can get it [here](https://www.python.org/downloads/)
 
-## Getting Started
+### Getting Started
 Clone the repo:
 ```
 git clone https://github.com/bdon-htb/chatbot-js
