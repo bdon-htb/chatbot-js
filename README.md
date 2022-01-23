@@ -6,8 +6,8 @@ Aliza's name is a portmanteau of the names Alice (A.L.I.C.E.) and Eliza who
 are older chatbots that Aliza was based on. Aliza even uses a custom markup language
 that is very similar to AIML. You can read more about the .alzml file syntax in the notes directory of this repo.
 
-Aliza uses a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) using JavaScript's
-builtin Map objects. This implementation is similar to how Alice's interpreter is
+Aliza uses a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) data structure using JavaScript's
+builtin Map objects. This implementation is similar to how ALICE's interpreter is
 implementated as according to the [AIML foundation website](http://www.aiml.foundation/doc.html) (checkout the "AIML Pattern Matching" section).
 
 PyJac is a hackathon run by students at UTM. Participants are given a selection
